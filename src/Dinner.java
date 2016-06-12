@@ -8,6 +8,10 @@
  */
 public class Dinner {
 	public String name;
+	// list of string tags
+	// list of string,float ingredient tuples
+	// list of derivative meals
+	// string cooking instructions
 
 	public Dinner(String _name) {
 		name = _name;
