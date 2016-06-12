@@ -1,2 +1,36 @@
 tomato soup, can(s)
 white bread, slice(s)
+leeks, bunch(es)
+chicken stock, cup(s)
+rosemary, sprig(s)
+peas, cup(s)
+feta, disc(s)
+plain yoghurt, cup(s)
+crusty bread, loaf
+garlic, clove(s)
+mint, bunch(es)
+baby marrow, unit(s)
+onion, onion(s)
+mince, grams
+cumin, ml
+tomato paste, sachets
+white wine, cup(s)
+tinned tomatoes, tin(s)
+beef stock, cup(s)
+cinnamon, sticks
+brinjals, unit(s)
+butter, Tbsp
+flour, cup(s)
+milk, cup(s)
+parmesan, cup(s)
+eggs, egg(s)
+pork chops, unit(s)
+cauliflower, unit(s)
+cream, cup(s)
+wholegrain mustard, Tbsp
+boneless chicken thighs, unit(s)
+olives, cup(s)
+capers, Tbsp
+rice, cup(s)
+basil, bunch(es)
+chicken breasts, unit(s)
