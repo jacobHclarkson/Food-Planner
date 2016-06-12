@@ -1,5 +1,5 @@
 TITLE (title can be first line)
-tag, tag, tag, tag, tag (comma separated list)
+tag,tag,tag,tag,tag (comma separated list)
 BEGIN INGREDIENTS
 ingredient, quantity (tuples)
 ingredient, quantity
