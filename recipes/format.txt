@@ -1,10 +1,10 @@
 TITLE (title can be first line)
 tag,tag,tag,tag,tag (comma separated list)
 BEGIN INGREDIENTS
-ingredient, quantity (tuples)
-ingredient, quantity
-ingredient, quantity
+ingredient,quantity (tuples)
+ingredient,quantity
+ingredient,quantity
 END INGREDIENTS
-meal, meal, meal (comma separated list of meals that can be made from this recipe's leftovers)
+meal,meal,meal (comma separated list of meals that can be made from this recipe's leftovers)
 COOKING INSTRUCTIONS
 bla bla bla
