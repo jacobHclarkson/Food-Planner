@@ -9,14 +9,14 @@ import java.util.ArrayList;
  */
 public class Dinner {
 	private String name;
-	private ArrayList<String> tags = new ArrayList<String>();
+	private String[] tags;
 	private ArrayList<Ingredient> ingredients = new ArrayList<Ingredient>();
-	private ArrayList<Dinner> derivedDinners= new ArrayList<Dinner>();
+	private String[] derivedDinners;
 	private String cookingInstructions;
 
 	//ctor
-	public Dinner(String name, ArrayList<String> tags, ArrayList<Ingredient> ingredients,
-			ArrayList<Dinner> derivedDinners, String cookingInstructions) {
+	public Dinner(String name, String[] tags, ArrayList<Ingredient> ingredients,
+			String[] derivedDinners, String cookingInstructions) {
 		this.name = name;
 		this.tags = tags;
 		this.ingredients = ingredients;
@@ -30,16 +30,16 @@ public class Dinner {
 		String dinnerString = "";
 		dinnerString += "Dinner: " + name;
 		dinnerString += "\nTags: ";
-		for(int i=0 ; i<tags.size() ; i++) {
-			dinnerString += tags.get(i) + " ";
+		for(int i=0 ; i<tags.length ; i++) {
+			dinnerString += tags[i] + ", ";
 		}
-		dinnerString += "\nIngredients:";
+		dinnerString += "\nIngredients:\n";
 		for(int i=0 ; i<ingredients.size() ; i++) {
 			dinnerString += "\t" + ingredients.get(i).name + ": " + ingredients.get(i).quantity + "\n";
 		}
 		dinnerString += "Derived Dinners: ";
-		for(int i=0 ; i<derivedDinners.size() ; i++) {
-			dinnerString += "\t" + derivedDinners.get(i).name;
+		for(int i=0 ; i<derivedDinners.length ; i++) {
+			dinnerString += "\t" + derivedDinners[i];
 		}
 		dinnerString += "\nCooking Instructions: \n" + cookingInstructions;;
 		return dinnerString;
@@ -47,8 +47,8 @@ public class Dinner {
 
 	//getters
 	public String getDinnerName() {return name;}
-	public ArrayList<String> getDinnerTags() {return tags;}
+	public String[] getDinnerTags() {return tags;}
 	public ArrayList<Ingredient> getDinnerIngredients() {return ingredients;}
-	public ArrayList<Dinner> getDerivedDinners() {return derivedDinners;}
+	public String[] getDerivedDinners() {return derivedDinners;}
 	public String getDinnerInstructions() {return cookingInstructions;}
 }

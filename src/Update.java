@@ -22,7 +22,7 @@ public class Update {
 
 		for(int i=0 ; i<Dinners.size() ; i++)
 		{
-			System.out.println(Dinners.get(i).name);
+			System.out.println(Dinners.get(i).toString());
 		}
 
 		
@@ -36,10 +36,8 @@ public class Update {
 		File[] recipeFiles = recipeFolder.listFiles();
 		for(int i=0 ; i< recipeFiles.length; i++) {
 			if(recipeFiles[i].isFile()) {
-				// if ends with .rec
 				String fileName = recipeFiles[i].getName();
 				if(fileName.substring(fileName.length()-4).equals(".rec")) {
-					// add name to recipe list
 					recipes.add(fileName);
 				}
 			}
@@ -49,22 +47,60 @@ public class Update {
 
 	// read the contents of each recipe file into a Dinner object
 	private static ArrayList<Dinner> CreateDinnerObjects(ArrayList<String> files) {
-		ArrayList<Dinner> d = new ArrayList<Dinner>();
+		ArrayList<Dinner> ds = new ArrayList<Dinner>();
 		for(int i=0 ; i<files.size() ; i++) {
+			String dName;
+			String[] dTags;
+			ArrayList<Ingredient> dIngredients = new ArrayList<Ingredient>();
+			String[] dDerivedDinners;
+			String dCookingInstructions = "";
 			try (BufferedReader br = new BufferedReader(new FileReader("../recipes/" + files.get(i)))) {
-				Dinner dinner = new Dinner(br.readLine());
-				d.add(dinner);
+				// for each file, create a dinner object
 
+				// read name from file
+				dName = br.readLine();
 
-				//for(String line; (line = br.readLine()) != null; ) {
-					//process the line
-				//	System.out.println(line);
-				//}
+				// read tags from file
+				String tagsLine = br.readLine();
+				dTags = tagsLine.split(",");
+				
+				//read ingredients from file
+				// first line is BEGIN INGREDIENTS
+				String check = br.readLine();
+				if(check.equals("BEGIN INGREDIENTS")) {
+					check = br.readLine();
+					while(!check.equals("END INGREDIENTS")) {
+						// create ingredient object for each ingredient
+						String[] iqPair = check.split(",");
+						//TODO need to guard against null quantity here probably
+						if(iqPair[1].equals("~"))
+							iqPair[1] = "0";
+						Ingredient ing = new Ingredient(iqPair[0], Float.parseFloat(iqPair[1]));
+						dIngredients.add(ing);
+						check = br.readLine();
+					}
+				}
+				
+				// read derived dinners from file
+				String derivedLine = br.readLine();
+				dDerivedDinners = derivedLine.split(".");
+				
+				// read cooking instructions from file (here until end of file)
+				String instructionLine = "";
+				while(true) {
+					instructionLine = br.readLine();
+					if(instructionLine == null) {break;}
+					dCookingInstructions += instructionLine + "\n";
+				}
+				
+				// create dinner object
+				Dinner d = new Dinner(dName, dTags, dIngredients, dDerivedDinners, dCookingInstructions);
+				ds.add(d);
 			} catch (Exception e) {
 				System.err.println(e.getClass().getName() + ": " + e.getMessage());
 				System.exit(0);
 			}
 		}
-		return d;
+		return ds;
 	}
 }
