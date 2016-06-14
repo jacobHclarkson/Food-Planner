@@ -6,5 +6,6 @@ ingredient,quantity
 ingredient,quantity
 END INGREDIENTS
 meal,meal,meal (comma separated list of meals that can be made from this recipe's leftovers)
-COOKING INSTRUCTIONS
-bla bla bla
+1) bla bla bla (cooking instructions)
+2) bla bla bla
+3) bla bla bla

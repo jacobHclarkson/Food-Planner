@@ -1,4 +1,3 @@
-//TODO fully create each dinner object
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.File;
@@ -72,7 +71,6 @@ public class Update {
 					while(!check.equals("END INGREDIENTS")) {
 						// create ingredient object for each ingredient
 						String[] iqPair = check.split(",");
-						//TODO need to guard against null quantity here probably
 						if(iqPair[1].equals("~"))
 							iqPair[1] = "0";
 						Ingredient ing = new Ingredient(iqPair[0], Float.parseFloat(iqPair[1]));
